@@ -10,25 +10,52 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="user")
 
 public class User implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7973151524278322479L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_user")
 	private Long idUser;
 	
+	@NotEmpty
+	@Size(min=6)
+	@Column(unique=true)
 	private String username;
+	
+	@NotEmpty
+	@Size(min=6)
 	private String password;
+	
+	@NotEmpty
+	@Column(unique=true)
 	private String email;
-	private int status;
-	private String role;
+	
+	@Lob
+	private byte[] photo;
+	
+	private boolean actived;
+	
 	private String niveau;
+	
 	private String specialite;
+	
 	private String signature;
 	
 	private String profession;
@@ -36,37 +63,79 @@ public class User implements Serializable{
 	@Column(name="date_creation")
 	private Date dateCreation;
 	
-
 	@Embedded
 	private Adresse adresse;
 	
-	@OneToMany(mappedBy="commentaire")
-	private Collection<Commentaire> commentaires;
+	@OneToMany
+	@JoinColumn(name="id_user")
+	private Collection<Commentaire> commentaires = new HashSet<Commentaire>();
 	
-	private Image image;
 	
-	@OneToMany(mappedBy="contenu")
-	private Collection<Contenu> contenus;
+	@ManyToOne
+	@JoinColumn(name="id_role")
+	private Role role;;
 	
+	@OneToMany(mappedBy="user")
+	private Collection<Contenu> contenus = new HashSet<Contenu>();
+	
+	@OneToMany
+	@JoinColumn(name="id_user")
+	private Collection<Favori> favoris = new HashSet<Favori>();
+	
+
+	public Collection<Favori> getFavoris() {
+		return favoris;
+	}
+	public void setFavoris(Collection<Favori> favoris) {
+		this.favoris = favoris;
+	}
+	public void addContenu(Contenu c){
+		c.setUser(this);
+		contenus.add(c);
+	}
+	public void addCommentaire(Commentaire c){
+		commentaires.add(c);
+	}
+
 	public User() {
 		super();
 		
 	}
-	public User(String username, String password, String email, int status,
-			String role, String niveau, String specialite, String signature, String profession) {
+	public User(String username, String password, String email, boolean actived,
+	String niveau, String specialite, String signature, String profession) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.email = email;
-		this.status = status;
-		this.role = role;
+		this.actived = actived;
 		this.niveau = niveau;
 		this.specialite = specialite;
 		this.signature = signature;
-
 		this.profession = profession;
+		
 	}
 	
+	
+	public User(String username, String password, String email) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.email = email;
+	}
+	public Role getRole() {
+		return role;
+	}
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	public boolean isActived() {
+		return actived;
+	}
+
+	public void setActived(boolean actived) {
+		this.actived = actived;
+	}
+
 	public Long getIdUser() {
 		return idUser;
 	}
@@ -91,18 +160,7 @@ public class User implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getStatus() {
-		return status;
-	}
-	public void setStatus(int status) {
-		this.status = status;
-	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
+	
 	public String getNiveau() {
 		return niveau;
 	}
@@ -146,16 +204,16 @@ public class User implements Serializable{
 	public void setCommentaires(Collection<Commentaire> commentaires) {
 		this.commentaires = commentaires;
 	}
-	public Image getImage() {
-		return image;
-	}
-	public void setImage(Image image) {
-		this.image = image;
-	}
 	public Collection<Contenu> getContenus() {
 		return contenus;
 	}
-	public void setContenus(Collection<Contenu> contenus) {
+	public byte[] getPhoto() {
+		return photo;
+	}
+    public void setPhoto(byte[] photo) {
+		this.photo = photo;
+	}
+    public void setContenus(Collection<Contenu> contenus) {
 		this.contenus = contenus;
 	}
 	

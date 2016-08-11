@@ -12,6 +12,7 @@ public class Adresse {
 	private String codePostal;
 	
 	private String ville;
+	
 	private String pays;
 	
 	public String getAdresse() {

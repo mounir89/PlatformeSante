@@ -3,14 +3,39 @@ package org.platforme.sante.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.Min;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+@Entity
+@Table(name="video")
 public class Video implements Serializable{
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_video")
 	private Long idVideo;
+	
+	@Column(name="titre_video")
+	@NotEmpty
+	@Min(2)
 	private String titreVideo;
-	private String nomVideo;
+	
+	@Column(name="lien_video")
+	@NotEmpty
 	private String lienVideo;
+	
+	@Column(name="date_video")
 	private Date dateVideo;
-	private Contenu contenu;
+	
 	public Long getIdVideo() {
 		return idVideo;
 	}
@@ -22,12 +47,6 @@ public class Video implements Serializable{
 	}
 	public void setTitreVideo(String titreVideo) {
 		this.titreVideo = titreVideo;
-	}
-	public String getNomVideo() {
-		return nomVideo;
-	}
-	public void setNomVideo(String nomVideo) {
-		this.nomVideo = nomVideo;
 	}
 	public String getLienVideo() {
 		return lienVideo;
@@ -41,12 +60,7 @@ public class Video implements Serializable{
 	public void setDateVideo(Date dateVideo) {
 		this.dateVideo = dateVideo;
 	}
-	public Contenu getContenu() {
-		return contenu;
-	}
-	public void setContenu(Contenu contenu) {
-		this.contenu = contenu;
-	}
+
 	public Video() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -54,7 +68,6 @@ public class Video implements Serializable{
 	public Video(String titreVideo, String nomVideo, String lienVideo) {
 		super();
 		this.titreVideo = titreVideo;
-		this.nomVideo = nomVideo;
 		this.lienVideo = lienVideo;
 	}
 	

@@ -4,36 +4,32 @@ import java.io.Serializable;
 import java.util.*;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.Min;
 
+import org.hibernate.validator.constraints.NotEmpty;
+@Entity
+@Table(name="commentaire")
 public class Commentaire implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_commentaire")
 	private Long idCommentaire;
 	
 	@Column(name="date_commentaire")
 	private Date dateCommentaire;
 	
 	@Column(name="contenu_commentaire")
+	@NotEmpty
+	@Min(2)
 	private String contenuCommentaire;
-	
-	@ManyToOne
-	@JoinColumn(name="id_contenu")
-	private Contenu contenu;
-	
-	
-	@ManyToOne
-	@JoinColumn(name="id_user")
-	private User user;
-	
-	
-	
-	
 	
 	public Long getIdCommentaire() {
 		return idCommentaire;
@@ -53,18 +49,7 @@ public class Commentaire implements Serializable{
 	public void setContenuCommentaire(String contenuCommentaire) {
 		this.contenuCommentaire = contenuCommentaire;
 	}
-	public Contenu getContenu() {
-		return contenu;
-	}
-	public void setContenu(Contenu contenu) {
-		this.contenu = contenu;
-	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+
 	public Commentaire() {
 		super();
 	}

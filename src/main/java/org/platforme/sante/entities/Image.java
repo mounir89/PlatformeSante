@@ -3,17 +3,44 @@ package org.platforme.sante.entities;
 import java.io.Serializable;
 import java.util.*;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+@Entity
+@Table(name="image")
 public class Image implements Serializable{
 	
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_image")
 	private Long idImage;
+	
+	@Column(name="titre_image")
+	@NotEmpty
+	@Size(min=2)
 	private String titreImage;
-	private String nomImage;
+	
+
+	@Column(name="lien_image")
+	@NotEmpty
 	private String lienImage;
+	
+	@Column(name="date_image")
 	private Date dateImage;
-	private Contenu contenu;
-	private User user;
+	
+	
+	
+	
 	public Long getIdImage() {
 		return idImage;
 	}
@@ -26,12 +53,7 @@ public class Image implements Serializable{
 	public void setTitreImage(String titreImage) {
 		this.titreImage = titreImage;
 	}
-	public String getNomImage() {
-		return nomImage;
-	}
-	public void setNomImage(String nomImage) {
-		this.nomImage = nomImage;
-	}
+	
 	public String getLienImage() {
 		return lienImage;
 	}
@@ -44,18 +66,7 @@ public class Image implements Serializable{
 	public void setDateImage(Date dateImage) {
 		this.dateImage = dateImage;
 	}
-	public Contenu getContenu() {
-		return contenu;
-	}
-	public void setContenu(Contenu contenu) {
-		this.contenu = contenu;
-	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
 	public Image() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -63,7 +74,6 @@ public class Image implements Serializable{
 	public Image(String titreImage, String nomImage, String lienImage) {
 		super();
 		this.titreImage = titreImage;
-		this.nomImage = nomImage;
 		this.lienImage = lienImage;
 	}
 	
