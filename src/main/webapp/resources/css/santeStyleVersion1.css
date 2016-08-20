@@ -1,4 +1,3 @@
-@CHARSET "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
 /*!
  * bootswatch v3.3.7
@@ -2515,6 +2514,8 @@ label {
   max-width: 100%;
   margin-bottom: 5px;
   font-weight: bold;
+  color:#000;
+  
 }
 input[type="search"] {
   -webkit-box-sizing: border-box;
@@ -2988,6 +2989,7 @@ select[multiple].input-lg {
     text-align: right;
     margin-bottom: 0;
     padding-top: 7px;
+    font-weight: bold;
   }
 }
 .form-horizontal .has-feedback .form-control-feedback {
@@ -4513,7 +4515,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #bbbbbb;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #666666;
+  color: #000;
+  font-size: 14px;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
@@ -7027,12 +7030,13 @@ input[type=number],
 [type=tel].form-control,
 [contenteditable].form-control {
   padding: 0;
-  border: none;
+  border: 2px solid #2196f3;
   border-radius: 0;
   -webkit-appearance: none;
   -webkit-box-shadow: inset 0 -1px 0 #dddddd;
   box-shadow: inset 0 -1px 0 #dddddd;
   font-size: 16px;
+  background-color: #fff;
 }
 textarea:focus,
 textarea.form-control:focus,
@@ -7047,7 +7051,7 @@ input[type=number]:focus,
 [type=tel].form-control:focus,
 [contenteditable].form-control:focus {
   -webkit-box-shadow: inset 0 -2px 0 #2196f3;
-  box-shadow: inset 0 -2px 0 #2196f3;
+  /*box-shadow: inset 0 -2px 0 #2196f3;*/
 }
 textarea[disabled],
 textarea.form-control[disabled],
@@ -7107,7 +7111,7 @@ input[type=number].input-lg,
 }
 select,
 select.form-control {
-  border: 0;
+  border: 2px solid #2196f3;
   border-radius: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -7328,7 +7332,7 @@ input[type="checkbox"]:disabled:checked:after,
 .has-error [type=text].form-control[readonly],
 .has-error input:not([type=checkbox]):focus,
 .has-error .form-control:focus {
-  border-bottom: none;
+  border : 2px solid #e51c23;
   -webkit-box-shadow: inset 0 -2px 0 #e51c23;
   box-shadow: inset 0 -2px 0 #e51c23;
 }
@@ -7339,7 +7343,7 @@ input[type="checkbox"]:disabled:checked:after,
 .has-success [type=text].form-control[readonly],
 .has-success input:not([type=checkbox]):focus,
 .has-success .form-control:focus {
-  border-bottom: none;
+  border : 2px solid #4caf50;
   -webkit-box-shadow: inset 0 -2px 0 #4caf50;
   box-shadow: inset 0 -2px 0 #4caf50;
 }

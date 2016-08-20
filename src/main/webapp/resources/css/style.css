@@ -1,0 +1,122 @@
+@CHARSET "UTF-8";
+
+#footer{
+	padding-top:20px;
+	background-color: #565656;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	color: #fff;
+}
+
+.titre_footer{
+	font-size: 15px;
+	margin: 0;
+	font-weight: bold;
+	color: #fff;
+}
+
+.listlink_footer{
+	
+	list-style: none;
+}
+.listlink_footer li{
+		margin-left: -40px;
+	
+}
+ .listlink_footer a{
+	color: #fff;
+}
+#cours{
+	background-color: #f6f6f6;
+}
+#register{
+	margin-top: -20px;
+	padding-top : 20px;
+	padding-bottom: 20px;
+	background-color: #f6f6f6;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.jumbotron{
+	margin-top:-20px;
+	
+	background-image: url("../img/imgfond.jpg");
+	height: 430px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	background-size: 100% 100%;
+}
+
+.inner-addon {
+  position: relative;
+}
+
+/* style glyph */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align glyph */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.btns {
+  text-transform: uppercase;
+  border: none;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.btns{
+	 display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 16px;
+  font-size: 13px;
+  line-height: 1.846;
+  border-radius: 3px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-transform: lowercase;
+  
+}
+#lg:hover{
+	background-color: #ff9800 ;
+}
+#reg:hover{
+	background-color: #2196f3;
+}
+@font-face {
+	font-family: 'BebasNeue';
+	src: url('../fonts/BebasNeue.otf');
+}
+#logo{
+	font-family: BebasNeue;
+	font-size: 25px;
+	margin-bottom: 5px;
+}
+#souslogo{
+	font-size: 12px;
+	font-family: BebasNeue;
+
+}
+.panel_img{
+	width: 100%;
+	height: auto;
+	display: block;
+	
+}

@@ -14,6 +14,8 @@ public interface ISanteDao {
 	public void modifierUser(User u);
 	public void attribuerRole(Role r, Long idUser);
 	public List<User> listUsers();
+	public int existEmail(String email);
+	public int existUsername(String username);
 	
 	
 	

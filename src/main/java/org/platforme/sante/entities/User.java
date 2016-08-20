@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
@@ -45,6 +46,7 @@ public class User implements Serializable{
 	
 	@NotEmpty
 	@Column(unique=true)
+	@Email
 	private String email;
 	
 	@Lob

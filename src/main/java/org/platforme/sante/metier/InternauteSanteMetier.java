@@ -7,7 +7,8 @@ import java.util.List;
 import org.platforme.sante.entities.*;
 
 public interface InternauteSanteMetier  {
-	
+	public int existEmail(String email);
+	public int existUsername(String username);
 	public Long creerUser(User u);
 	public User trouverUser(String username, String password);
 	public List<Commentaire> AfficherCommentairesParContenu(Long idContenu);

@@ -146,6 +146,18 @@ public class UserSanteMetierImp implements IAdminSanteMetier {
 		return dao.listUsers();
 	}
 
+	@Override
+	public int existEmail(String email) {
+	
+		return dao.existEmail(email);
+	}
+
+	@Override
+	public int existUsername(String username) {
+
+		return dao.existUsername(username);
+	}
+
 	
 	
 

@@ -183,6 +183,26 @@ public class SanteDaoImp implements ISanteDao {
 		return req.getResultList();
 	}
 
+	@Override
+	public int existEmail(String email) {
+		System.out.println("email : "+email);
+		Query req = em.createQuery("select u from User u where u.email = :x");
+		req.setParameter("x", email);
+		User u = (User)req.getSingleResult();
+		if(u.getUsername()!=null){
+			return 1;
+		}
+		else return 0;
+		
+	}
+	@Override
+	public int existUsername(String username) {
+		
+		Query req = em.createQuery("from User u where u.username = :x");
+		req.setParameter("x", username);
+		return req.getFirstResult();
+		
+	}
 
 
 
